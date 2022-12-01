@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+	--white: #FFF;
+	--bright-blue: hsl(220, 98%, 61%);
+	--very-light-gray: hsl(0, 0%, 98%);
+	--very-light-grayish-blue: hsl(236, 33%, 92%);
+	--light-grayish-blue: hsl(233, 11%, 84%);
+	--dark-grayish-blue: hsl(236, 9%, 61%);
+	--very-dark-grayish-blue: hsl(235, 19%, 35%);
+}
+
+body {
+	font-weight: 400;
+	font: 18px 'Open Sans', Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	appearance: none;
+}
+
+figure {
+	padding: 0;
+	margin: 0;
+}
+
+:focus {
+	outline: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1440px;
+	padding: 0 20px;
+	position: relative;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header .header-icons {
+	display: flex;
+	align-items: center;
+}
+
+.form-new-todo {
+	margin-top: 43px;
+}
+
+.todoapp {
+	position: relative;
+	max-width: 537px;
+	margin: 0 auto;
+	padding-top: 75px;
+}
+
+.main-bg {
+	height: 300px;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.todoapp-background {
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+}
+
+.todoapp input::placeholder {
+	font-weight: 400;
+	color: var(--dark-grayish-blue);
+}
+
+.todoapp h1 {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 2.5rem;
+	letter-spacing: .4em;
+	margin: 0;
+	color: var(--white);
+}
+
+.new-todo,
+.edit {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.4em;
+	border: 0;
+	color: inherit;
+	padding: 6px;
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+}
+
+.new-todo {
+	padding: 17px 33px 17px 70px;
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	background: var(--white);
+	border-radius: 5px;
+	color: var(--dark-grayish-blue);
+}
+
+.main {
+	margin-top: 22px;
+	position: relative;
+	z-index: 2;
+}
+
+.toggle-all + label {
+	align-items: center;
+	border-radius: 50vw;
+	border: 1px solid var(--dark-grayish-blue);
+	display: flex;
+	height: 25px;
+	justify-content: center;
+	left: 20px;
+	position: absolute;
+	top: -65px;
+	width: 25px;
+}
+
+.todo-list {
+	background: var(--very-light-gray);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.todo-list li {
+	position: relative;
+	font-size: 20px;
+	border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.todo-list li:last-child {
+	border-bottom: none;
+}
+
+.todo-list li.editing {
+	border-bottom: none;
+	padding: 0;
+}
+
+.todo-list li.editing .edit {
+	display: block;
+	width: 506px;
+	padding: 12px 16px;
+	margin: 0 0 0 43px;
+}
+
+.todo-list li.editing .view {
+	display: none;
+}
+
+.todo-list li .toggle,
+.toggle-all {
+	appearance: none;
+	bottom: 0;
+	height: 25px;
+	left: 20px;
+	margin: auto 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 25px;
+	z-index: 1;
+}
+
+.toggle-all {
+	margin: 0;
+	position: absolute;
+	top: -65px;
+}
+
+.todo-list li .new-check {
+	align-items: center;
+	border-radius: 50vw;
+	border: 1px solid var(--dark-grayish-blue);
+	bottom: 0;
+	display: flex;
+	height: 25px;
+	justify-content: center;
+	left: 20px;
+	margin: auto 0;
+	position: absolute;
+	top: 0;
+	width: 25px;
+}
+
+.todo-list li .toggle:hover + span,
+.todo-list li .toggle:checked + span,
+.toggle-all:hover + label,
+.toggle-all:checked + label {
+	background: linear-gradient(to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+	border: 0;
+}
+
+.todo-list li .toggle:checked + span::after,
+.toggle-all:checked + label::after {
+	content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI5Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTEgNC4zMDRMMy42OTYgN2w2LTYiLz48L3N2Zz4=');
+	display: inline-flex;
+}
+
+.todo-list li label {
+	color: var(--very-dark-grayish-blue);
+	display: block;
+	padding: 15px 15px 15px 75px;
+	transition: color 0.4s;
+	word-break: break-all;
+}
+
+.todo-list li.completed label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+.todo-list li .destroy {
+	bottom: 0;
+	color: var(--light-grayish-blue);
+	cursor: pointer;
+	display: none;
+	font-size: 30px;
+	height: 40px;
+	margin-bottom: 11px;
+	margin: auto 0;
+	position: absolute;
+	right: 10px;
+	top: 0;
+	transition: color 0.2s ease-out;
+	width: 40px;
+}
+
+.todo-list li .destroy:hover {
+	color: var(--very-dark-grayish-blue);
+}
+
+.todo-list li .destroy:after {
+	content: '×';
+}
+
+.todo-list li:hover .destroy {
+	display: block;
+}
+
+.todo-list li .edit {
+	display: none;
+}
+
+.todo-list li.editing:last-child {
+	margin-bottom: -1px;
+}
+
+.footer {
+	background: var(--white);
+	border-top: 1px solid var(--light-grayish-blue);
+	box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.1);
+	color: #777;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.todo-count {
+	font-size: 1rem;
+}
+
+.todo-count strong {
+	font-weight: 400;
+}
+
+.filters {
+	font-size: 1rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.filters li {
+	display: inline-block;
+}
+
+.filters li a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.filters li:not(:first-of-type) {
+	margin-left: 5px;
+}
+
+.filters li a:hover {
+	color: var(--bright-blue);
+}
+
+.filters li a.selected {
+	color: var(--bright-blue);
+}
+
+.clear-completed,
+.clear-completed:active {
+	cursor: pointer;
+	font-size: 1rem;
+	text-decoration: none;
+}
+
+.clear-completed:hover {
+	text-decoration: underline;
+}
+
+.info {
+	margin: 65px auto 0;
+	color: #bfbfbf;
+	font-size: 10px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	text-align: center;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.todo-list li .toggle {
+		height: 40px;
+	}
+}
+
+/** Mobile **/
+
+@media (max-width: 780px) {
+	.todo-count,
+	.clear-completed {
+		display: none;
+	}
+
+	.footer {
+		justify-content: center;
+	}
+}
